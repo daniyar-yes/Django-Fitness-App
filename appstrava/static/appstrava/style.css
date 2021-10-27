@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-weight: normal;
+}
+.feed {
+    background-color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+ul {
+    margin-top: 0%;
+}
+a:link {
+    color: rgb(107, 21, 204);
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color:rgb(153, 15, 153);
+  }
+a:hover {
+    color: rgb(12, 27, 11);
+    text-decoration: underline;
+}

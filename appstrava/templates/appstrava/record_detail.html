@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daniyar's StravaApp</title>
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+{% if authors %}
+    <ul style="list-style-type:none; margin-top: 10%"><h4 align="center">Record details: </h4>
+    {% for author in authors %}
+        
+        <li>User: <a href="/appstrava/{{ author.user }}/">{{ author.user }}</a></li>
+        <li>Sport category: {{ author.sport_type}}</li>
+        <li>Repeats: {{ author.amount}}<li>
+        <li>Posted on: {{ author.pub_date}}</li>
+    {% endfor %}
+    </ul>
+    <a href="/appstrava/" style="margin: 0 auto; display:block;text-align: center" > Back to Main Page</a>
+{% else %}
+    <p>No records available.</p>
+{% endif %}
+</body>
+</html>

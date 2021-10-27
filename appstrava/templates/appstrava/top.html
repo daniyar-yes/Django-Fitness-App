@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daniyar's StravaApp</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+{% if records %}
+    <ol style="margin-top: 10%"><h4 align="center" >Records of {{ formatted_period }}</h4>
+    {% for record in records %}
+        <li><a href="/appstrava/{{ record.id }}/">{{ record.record_name }}</a></li>
+    {% endfor %}
+    </ol>
+    <details><summary align="center">All Top Lists</summary>
+    <ul style="list-style-type:none;">
+    <li><a href="/appstrava/top"> All-Sports Leaderboard </a></li>
+    <li><a href="/appstrava/top/year/"> Year top results </a></li>
+    <li><a href="/appstrava/top/month/"> Month top results </a></li>
+    <li><a href="/appstrava/top/pullups"> Records in Pull-ups </a></li>
+    <li><a href="/appstrava/top/crunches"> Records in Crunches </a></li>
+    <li><a href="/appstrava/top/squats"> Records in Squats </a></li>
+    <li><a href="/appstrava/top/pushups"> Records in Push-Ups </a></li>
+    </ul>
+    </details><br>
+{% else %}
+    <p>No records available.</p>
+{% endif %}
+    <a href="/appstrava/" style="margin: 0 auto; display:block;text-align: center" > Back to Main </a>
+</body>
+</html>

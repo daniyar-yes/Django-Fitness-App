@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daniyar's StravaApp</title>
+
+{% load static %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+{% if latest_record_list %}
+<div class="feed" style="margin-top: 10%">
+    <h4 align="center">You are on the main page of Daniyar's Strava-App</h4>
+    <h2 align="center">Feed:</h2>
+    <ul>
+    {% for record in latest_record_list %}
+        <li><a href="/appstrava/{{ record.id }}/">{{ record.record_name }}</a></li>
+    {% endfor %}
+    </ul>
+</div>
+    <details><summary align="center">Our Top Lists</summary>
+    <ul style="list-style-type:none;">
+    <li><a href="/appstrava/top"> All-Sports Leaderboard </a></li>
+    <li><a href="/appstrava/top/year/"> Year top results </a></li>
+    <li><a href="/appstrava/top/month/"> Month top results </a></li>
+    <li><a href="/appstrava/top/pullups"> Records in Pull-ups </a></li>
+    <li><a href="/appstrava/top/crunches"> Records in Crunches </a></li>
+    <li><a href="/appstrava/top/squats"> Records in Squats </a></li>
+    <li><a href="/appstrava/top/pushups"> Records in Push-Ups </a></li>
+    </ul>
+
+    </details>
+{% else %}
+    <p>No records available.</p>
+{% endif %}
+<br>
+{% if user_list %}
+    <details><summary align="center">Our athletes:</summary>
+    <ul style="list-style-type:none;">
+    {% for user in user_list %}
+        <li><a href="/appstrava/{{ user.name }}/">{{ user.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No athletes have registered yet</p>
+{% endif %}
+</body>
+</html>
